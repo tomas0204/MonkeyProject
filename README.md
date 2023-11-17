@@ -63,6 +63,13 @@ Asegurate de tener `Debug` en `True`
 Debug = True
 ```
 
+Verifica tus `ALLOWED_HOSTS` y si tienes formularios no te olvides de `CSRF_TRUSTED_ORIGINS`
+
+```py
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+CSRF_TRUSTED_ORIGINS = ['https://127.0.0.1', 'https://.vercel.app']
+```
+
 ## Produccion!
 
 Para subir tu pagina correctamente a Vercel, deberias tener estos aspectos en cuenta:
@@ -91,6 +98,14 @@ Tienes Super usuario?
 ```sh
 python manage.py createsuperuser
 ```
+
+Verifica tus `ALLOWED_HOSTS` y si tienes formularios no te olvides de `CSRF_TRUSTED_ORIGINS`
+
+```py
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+CSRF_TRUSTED_ORIGINS = ['https://127.0.0.1', 'https://.vercel.app']
+```
+
 <hr/>
 
 > Este repositorio fue creado el `17 / Nov / 2023`
