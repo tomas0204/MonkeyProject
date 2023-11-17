@@ -26,14 +26,14 @@ STATICFILES_DIRS = [
 Te recomiendo crear un entorno virtual, asi tendras mas control de todo
 
 ```sh
-python -m venv venv
+python -m venv NOMBRE
 ```
 
 Activa tu entorno
 
 ```sh
 # Unix
-source venv/bin/activate
+source NOMBRE/bin/activate
 ```
 
 Instala los requerimientos, este archivo `requirements.txt` solo contiene lo basico para hacer funcionar esta pagina, asi que tienes que instalar los modulos faltantes
