@@ -70,3 +70,5 @@ Tienes Super usuario?
 ```sh
 python manage.py createsuperuser
 ```
+
+> Este repositorio fue creado el `17 / Nov / 2023`
