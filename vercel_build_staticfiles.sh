@@ -10,4 +10,4 @@ python3.11 get-pip.py
 pip install -r requirements.txt
 
 # Build staticfiles
-python3.11 manage.py collectstatic --noinput
+python manage.py collectstatic --noinput
