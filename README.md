@@ -92,4 +92,5 @@ Tienes Super usuario?
 python manage.py createsuperuser
 ```
 <hr/>
+
 > Este repositorio fue creado el `17 / Nov / 2023`
