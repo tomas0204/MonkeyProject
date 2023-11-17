@@ -28,6 +28,12 @@ python manage.py makemigrations && python manage.py migrate
 
 Tambien puedes poner las migraciones "automaticas" en el archivo `vercel_build_staticfiles.sh` **descomentando** la linea que viene abajo de `Automatic Migrations` esto hara que las migraciones se hagan cada que se recopilen los staticsfiles
 
+```sh
+# Automatic migrations                                       # esta linea NO se debe descomentar
+#echo "Iniciando migraciones..."                             # esta linea se debe descomentar
+#python manage.py makemigrations && python manage.py migrate # esta linea se debe descomentar
+```
+
 Tienes Super usuario?
 
 ```sh
