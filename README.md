@@ -11,6 +11,26 @@
 
 Solo te falta el dominio para tu grandiosa app/web, pero ese no te lo puedo dar yo...
 
+## Antes de empezar a programar!
+
+Te recomiendo crear un entorno virtual, asi tendras mas control de todo
+
+```sh
+python -m venv venv
+```
+
+Activa tu entorno
+
+```sh
+source venv/bin/activate
+```
+
+Instala los requerimientos, este archivo `requirements.txt` solo contiene lo basico para hacer funcionar esta pagina, asi que tienes que instalar los modulos faltantes
+
+```sh
+pip install -r requirements.txt
+```
+
 ## A tomar en cuenta
 
 Antes de entrar a produccion te recomiendo checar estos detalles
