@@ -32,6 +32,7 @@ python -m venv venv
 Activa tu entorno
 
 ```sh
+# Unix
 source venv/bin/activate
 ```
 
