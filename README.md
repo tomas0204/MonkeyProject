@@ -42,9 +42,30 @@ Instala los requerimientos, este archivo `requirements.txt` solo contiene lo bas
 pip install -r requirements.txt
 ```
 
-## A tomar en cuenta
+## Desarrollo!
 
-Antes de entrar a produccion te recomiendo checar estos detalles
+Para iniciar localmente debes de ejecutar Tailwind y luego el servidor de Django, el proceso debe ser en distintas terminales
+
+```sh
+# Terminal 1
+python manage.py tailwind start
+```
+
+```sh
+Terminal 2
+python manage.py runserver
+```
+
+Asegurate de tener `Debug` en `True`
+
+```py
+#vercel_app/settings.py
+Debug = True
+```
+
+## Produccion!
+
+Para subir tu pagina correctamente a Vercel, deberias tener estos aspectos en cuenta:
 
 ```py
 #vercel_app/settings.py
