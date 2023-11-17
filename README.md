@@ -13,6 +13,13 @@ Solo te falta el dominio para tu grandiosa app/web, pero ese no te lo puedo dar 
 
 ## Antes de empezar a programar!
 
+Tu carpeta `static/` ahora esta dentro de `theme/static/` si quieres agregar otras carpetas puedes cambiar tu configuracion
+
+```py
+#vercel_app/settings.py
+
+```
+
 Te recomiendo crear un entorno virtual, asi tendras mas control de todo
 
 ```sh
