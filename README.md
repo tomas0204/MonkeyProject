@@ -9,7 +9,7 @@
 
 *Que mas puedes pedir?*
 
-Solo te falta el dominio para tu grandiosa app/web, pero ese no te lo puedo dar yo...
+Solo te falta el dominio para tu grandiosa web/app, pero ese no te lo puedo dar yo...
 
 ## Antes de empezar a programar!
 
@@ -99,11 +99,11 @@ Tienes Super usuario?
 python manage.py createsuperuser
 ```
 
-Verifica tus `ALLOWED_HOSTS` y si tienes formularios no te olvides de `CSRF_TRUSTED_ORIGINS`
+Verifica tus `ALLOWED_HOSTS` y si tienes formularios no te olvides de `CSRF_TRUSTED_ORIGINS`, si ya tienes tu dominio propio aqui es donde tendras que poner tu dominio para darle mayor seguridad a tu web/app
 
 ```py
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
-CSRF_TRUSTED_ORIGINS = ['https://127.0.0.1', 'https://.vercel.app']
+ALLOWED_HOSTS = ['tu-dominio.com']
+CSRF_TRUSTED_ORIGINS = ['https://tu-dominio.com']
 ```
 
 <hr/>
