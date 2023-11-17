@@ -52,7 +52,7 @@ python manage.py tailwind start
 ```
 
 ```sh
-Terminal 2
+# Terminal 2
 python manage.py runserver
 ```
 
@@ -91,5 +91,5 @@ Tienes Super usuario?
 ```sh
 python manage.py createsuperuser
 ```
-
+<hr/>
 > Este repositorio fue creado el `17 / Nov / 2023`
