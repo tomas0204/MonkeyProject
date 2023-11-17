@@ -11,7 +11,7 @@
     },
     {
       "src": "vercel_app/wsgi.py",
-      "use": "@vercel/vercel-python-wsgi",
+      "use": "@ardnt/vercel-python-wsgi",
       "config": {
         "maxLambdaSize": "15mb",
         "runtime": "python3.9"
