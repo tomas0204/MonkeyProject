@@ -25,11 +25,13 @@ SECRET_KEY = 'django-insecure-=cldztbc4jg&xl0!x673!*v2_=p$$eu)=7*f#d0#zs$44xx-h^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+# Estas 2 lineas de codigo tendras que quitarlas y ponerle tu dominio personalizado
 ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+CSRF_TRUSTED_ORIGINS = ['https://127.0.0.1', 'https://.vercel.app']
+###################################################################################
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
