@@ -1,5 +1,4 @@
 {
-  "version": 2,
   "name": "vercel-django-staticfiles",
   "builds": [
     {
