@@ -13,11 +13,14 @@ Solo te falta el dominio para tu grandiosa app/web, pero ese no te lo puedo dar 
 
 ## Antes de empezar a programar!
 
-Tu carpeta `static/` ahora esta dentro de `theme/static/` si quieres agregar otras carpetas puedes cambiar tu configuracion
+Tu carpeta `static/` ahora esta dentro de `theme/static/` si quieres agregar otras carpetas puedes cambiar tu configuracion de `STATICFILES_DIRS`
 
 ```py
 #vercel_app/settings.py
-
+STATICFILES_DIRS = [
+  os.path.join(BASE_DIR, "theme/static/"),
+  os.path.join(BASE_DIR, "RUTA_DE_TU_OTRA_CARPETA")
+]
 ```
 
 Te recomiendo crear un entorno virtual, asi tendras mas control de todo
