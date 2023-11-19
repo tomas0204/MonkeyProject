@@ -42,6 +42,16 @@ Instala los requerimientos, este archivo `requirements.txt` solo contiene lo bas
 pip install -r requirements.txt
 ```
 
+Ahora tenemos que instalar las dependencias de Tailwind con `npm`
+
+```sh
+cd RUTA_DE_TU_PROYECTO/theme/static_src/ && npm install
+
+# y regresamos a la carpeta principal con:
+cd ..
+cd ..
+```
+
 ## Desarrollo!
 
 Para iniciar localmente debes de ejecutar Tailwind y luego el servidor de Django, el proceso debe ser en distintas terminales
