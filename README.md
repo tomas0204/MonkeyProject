@@ -119,3 +119,4 @@ CSRF_TRUSTED_ORIGINS = ['https://tu-dominio.com']
 <hr/>
 
 > Este repositorio fue creado el `17 / Nov / 2023`
+# Vercel
