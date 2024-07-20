@@ -15,7 +15,7 @@
         <h1 id="buscador">Search</h1>
         <p id="info_search"> <b>Search for a movie, series, anime or book.</b></p>
         <div class="div_button">
-            <form action=" " method="get">
+            <form action="{% url 'movie' %}" method="get">
                 <input type="text" id="search" name="q" required autocomplete="off">
                 <button type="submit">Buscar</button>
             </form>
