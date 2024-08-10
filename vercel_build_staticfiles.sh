@@ -7,6 +7,12 @@ then
     pip install virtualenv
 fi
 
+# Eliminar el directorio venv si ya existe
+if [ -d "venv" ]; then
+    echo "Eliminando directorio venv existente..."
+    rm -rf venv
+fi
+
 # Crear y activar entorno virtual
 python3 -m venv venv
 source venv/bin/activate
