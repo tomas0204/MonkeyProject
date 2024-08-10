@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from datetime import datetime
-from .models import *
+from .models import Pelicula
+
+
 def hello(request):
     return render(request, 'index.html')
 
