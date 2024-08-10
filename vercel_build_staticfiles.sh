@@ -1,10 +1,11 @@
 #!/bin/bash
+set -e
 
 # Verificar si virtualenv está instalado, si no, instalarlo
 if ! command -v virtualenv &> /dev/null
 then
     echo "virtualenv no se encontró, instalándolo..."
-    pip install virtualenv
+    python -m pip install virtualenv
 fi
 
 # Eliminar el directorio venv si ya existe
@@ -14,7 +15,7 @@ if [ -d "venv" ]; then
 fi
 
 # Crear y activar entorno virtual
-python3 -m venv venv
+python -m venv venv
 source venv/bin/activate
 
 # Instalar pip en el entorno virtual si no está disponible
