@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from datetime import datetime
-
+from .models import *
 def hello(request):
     return render(request, 'index.html')
 
@@ -10,4 +10,4 @@ def movie(request):
         resultados = Pelicula.objects.filter(titulo__icontains=query)
         return render(request, 'result.html', {'resultados': resultados, 'query': query})
     else:
-        return render(request, 'index.html')
+        return render(request, "index.html")
