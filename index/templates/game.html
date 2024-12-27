@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="col-lg-6 text-center ">
+  <h1 class="mb-4 heading text-white" data-aos="fade-up" data-aos-delay="100">Pon La Palabra!</h1>
+    <form id="wordForm" action="{% url 'submit_word' %}" method="post" class="mt-4">
+        {% csrf_token %}
+        <div class="form-group">
+            <input 
+                type="text" 
+                id="wordInput" 
+                name="word" 
+                class="form-control mb-3" 
+                placeholder="Escribe una palabra..." 
+                minlength="3" 
+                maxlength="15" 
+                pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$" 
+                required>
+            <small class="form-text text-muted">
+                La palabra no debe contener números ni caracteres especiales.
+            </small>
+            {% if success is not None %}
+                <div class="alert {% if success %}alert-success{% else %}alert-danger{% endif %} mt-3" role="alert">
+                    {{ message }}
+                </div>
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="text-center mt-5">
+    <h1 class="heading text-white">Simulación del Mono</h1>
+    <p class="text-white">Palabra original: <strong>{{ word }}</strong></p>
+    <p class="text-white">Palabra aprendida: <strong>{{ learned_word }}</strong></p>
+    <p class="text-white">Número de intentos: <strong>{{ attempts }}</strong></p>
+</div>
+{% endblock %}

@@ -1,10 +1,24 @@
 from django.db import models
 
-class Pelicula(models.Model):
-    titulo = models.CharField(max_length=255)
-    año = models.IntegerField()
-    director = models.CharField(max_length=255)
-    poster = models.URLField()
+class Word(models.Model):
+    word = models.CharField(max_length=15, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):  
-        return self.titulo
+    def __str__(self):
+        return self.word
+
+import random
+
+def simulate_monkey_learning(word):
+    monkey_word = ['_'] * len(word)  # Palabra inicial con espacios vacíos
+    attempts = 0
+
+    while ''.join(monkey_word) != word:
+        for i, char in enumerate(word):
+            if monkey_word[i] == '_':  # Si la posición no está resuelta
+                random_letter = random.choice('abcdefghijklmnopqrstuvwxyz')
+                attempts += 1
+                if random_letter == char:  # Coincidencia
+                    monkey_word[i] = char
+                    break  # Ir a la siguiente letra
+    return ''.join(monkey_word), attempts

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="col-lg-6text-center">
+  <li class="rules">RULES</li>
+  <li><i class="fas fa-check-circle"></i>Solo palabras válidas: La palabra no debe contener números ni caracteres especiales como ()#$%&!¡.</li>
+  <li><i class="fas fa-check-circle"></i>Longitud de la palabra: La palabra debe tener entre 3 y 15 caracteres (ajustable según lo que desees).</li>
+  <li><i class="fas fa-check-circle"></i>Un solo intento a la vez: Solo puedes ingresar una palabra por vez.</li>
+  <li><i class="fas fa-check-circle"></i>No se permiten palabras ofensivas: Evita ingresar palabras inapropiadas o irrespetuosas.</li>
+  <li><i class="fas fa-check-circle"></i>El mono necesita tiempo: La recreación de la palabra será progresiva, ¡ten paciencia mientras aprende!</li>
+  <li><i class="fas fa-check-circle"></i>Diccionario limitado: El mono solo conoce palabras que están en su diccionario. Si no encuentra el significado, te lo hará saber.</li>
+  <li><i class="fas fa-check-circle"></i>Guarda tus palabras: Todas las palabras enseñadas al mono serán almacenadas en su "cerebro" (base de datos).</li>
+  <li><i class="fas fa-check-circle"></i>Colabora con el mono: Si el significado de una palabra no está en el diccionario, puedes sugerir uno.</li>
+  <li><i class="fas fa-check-circle"></i>No interrumpas al mono: Una vez que el mono comience a aprender una palabra, no puedes enviar otra hasta que termine.</li>
+  <li><i class="fas fa-check-circle"></i>Aprender es divertido: ¡Diviértete enseñándole nuevas palabras al mono y viendo cómo las aprende!</li>
+  <p class="mb-0" data-aos="fade-up" data-aos-delay="300"><a href="{% url 'game' %}" class="btn btn-secondary">Go!</a></p>
+</div>
+
+{% endblock %}
