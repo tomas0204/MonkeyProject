@@ -1,11 +1,63 @@
 {% extends "base.html" %}
 
-
 {% block content %}
+
 <div class="text-center mt-5">
-    <h1 class="heading text-white">Simulación del Mono</h1>
+    <img src="https://cdn.discordapp.com/attachments/831153224559099954/1322387141057052673/monkey.png?ex=6770b07f&is=676f5eff&hm=7187afd803462c811a223ed54c8415f5cca58cbc887d7054a47d6d73f84158e6&" alt="Descripción del GIF">
     <p class="text-white">Palabra original: <strong>{{ word }}</strong></p>
-    <p class="text-white">Palabra aprendida: <strong>{{ learned_word }}</strong></p>
-    <p class="text-white">Número de intentos: <strong>{{ attempts }}</strong></p>
+    <p class="text-white">Palabra aprendida: <strong id="learned-word">_ </strong></p>
+    <p class="text-white">Número de intentos: <strong id="attempts">0</strong></p>
+    <button id="start-button" class="btn btn-primary mt-3" onclick="startSimulation()">Iniciar Simulación</button>
 </div>
+
+<script>
+    
+    function startSimulation() {
+        const word = "{{ word }}";
+        const learnedWordElement = document.getElementById('learned-word');
+        const attemptsElement = document.getElementById('attempts');
+        const button = document.getElementById('start-button');
+        const definitionUrl = "{% url 'definition' word=word %}";
+        let learnedWord = Array(word.length).fill('_');
+        let attempts = 0;
+
+        // Desactiva el botón para evitar múltiples clics
+        button.disabled = true;
+
+        const interval = setInterval(() => {
+            if (learnedWord.join('') === word) {
+                clearInterval(interval);
+                alert(`¡El mono aprendió la palabra '${word}' en ${attempts} intentos!`);
+                
+                // Crear el botón con clase
+                const button = document.createElement('button');
+                button.id = 'start-button';  // Establecer el id
+                button.classList.add('btn', 'btn-primary', 'mt-3');  // Clases del botón
+                button.innerText = 'Enseñar Definición';  // Texto del botón
+                button.onclick = function() {
+                    // Redirigir al usuario a la vista 'definition' con la palabra correcta
+                    window.location.href = "{% url 'definition' word=word %}";
+                };
+                 // Agregar el botón dentro del div con la clase "text-center mt-5"
+                const div = document.querySelector('.text-center.mt-5');
+                div.appendChild(button);  // Agregar el botón al cuerpo del documento
+                return;
+            }
+
+            for (let i = 0; i < word.length; i++) {
+                if (learnedWord[i] === '_') {
+                    const randomLetter = String.fromCharCode(97 + Math.floor(Math.random() * 26)); // Letra aleatoria
+                    attempts++;
+                    if (randomLetter === word[i]) {
+                        learnedWord[i] = word[i];
+                        break; // Pasar a la siguiente letra
+                    }
+                }
+            }
+
+            learnedWordElement.textContent = learnedWord.join(' ');
+            attemptsElement.textContent = attempts;
+        }, 500); // Actualiza cada 500ms
+    }
+</script>
 {% endblock %}

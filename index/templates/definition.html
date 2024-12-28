@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="col-lg-6 text-center ">
+  <h2 class="mb-4 heading text-white" data-aos="fade-up" data-aos-delay="100">La palabra es "{{ word }}"!</h2>
+  <div class="col-lg-6text-center">
+    <li><i></i>Bien!, el mono encontró la palabra. Ahora, para que el mono termine de aprender, solo debes leer la definición correcta y mandársela!</li>
+  </div>  
+    <p class="mb-0" data-aos="fade-up" data-aos-delay="300">
+        <a href="https://www.wordreference.com/definicion/{{ word }}" class="btn btn-secondary" target="_blank">
+            Leer la definición
+        </a>
+    </p>
+    <form id="definitionForm" action="{% url 'final' %}" method="post" class="mt-4">
+        {% csrf_token %}
+        <div class="form-group">
+            <input 
+                type="text" 
+                id="wordInput" 
+                name="word" 
+                class="form-control mb-3" 
+                placeholder="Escribe la definición..." 
+                minlength="0" 
+                maxlength="100" 
+                pattern="^[a-zA-ZáéíóúÁÉÍÓÚ\s.,;!?']+$"
+                required>
+            <small class="form-text text-muted">
+                La definición debe ser corta y precisa.
+            </small>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+
+{% endblock %}

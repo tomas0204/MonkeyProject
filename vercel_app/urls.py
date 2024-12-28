@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
-from index.views import hello, rules, game, submit_word, monkey_learn
+from index.views import hello, rules, game, submit_word, monkey_learn, definition, final
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +26,8 @@ urlpatterns = [
     path("hello/game/", game, name="game"),
     path('submit_word/', submit_word, name='submit_word'),
     path('simulate/<int:word_id>/', monkey_learn, name='simulate'),
+    path('definition/<str:word>/', definition, name='definition'),
+    path('final/', final, name='final'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
