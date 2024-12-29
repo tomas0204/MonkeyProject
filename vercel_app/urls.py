@@ -25,7 +25,7 @@ urlpatterns = [
     path("hello/rules/", rules, name="rules"),
     path("hello/game/", game, name="game"),
     path('submit_word/', submit_word, name='submit_word'),
-    path('simulate/<int:word_id>/', monkey_learn, name='simulate'),
+    path('simulate/<str:word>/', monkey_learn, name='simulate'),
     path('definition/<str:word>/', definition, name='definition'),
     path('final/', final, name='final'),
 ]

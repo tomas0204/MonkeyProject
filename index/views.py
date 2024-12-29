@@ -20,21 +20,31 @@ def submit_word(request):
         word = request.POST.get('word')
         if len(word) >= 0 and len(word) <= 100 and word.isalpha():
             word = word.lower()
-            # Verificar si la palabra ya existe
+            # Verificar si la palabra ya existe en el archivo .txt
             try:
-                word_obj, created = Word.objects.get_or_create(word=word)
-                if created:
-                    return redirect('simulate', word_id=word_obj.id)
-                else:
+                file_path = 'db.txt'  # Ruta del archivo .txt
+                # Leer las palabras ya guardadas
+                with open(file_path, 'r') as file:
+                    words = file.read().splitlines()
+                
+                if word in words:
                     return render(request, 'game.html', {
                         'success': False,
                         'message': "La palabra ya se la enseñaron previamente."
                     })
-            except IntegrityError:
-                return render(request, 'game.html', {
-                    'success': False,
-                    'message': "Ocurrió un error al guardar la palabra."
-                })
+                
+                # Guardar la nueva palabra
+                with open(file_path, 'a') as file:
+                    file.write(f"{word}\n")
+
+                return redirect('simulate', word=word)
+
+            except FileNotFoundError:
+                # Si el archivo no existe, crearlo y guardar la palabra
+                with open(file_path, 'w') as file:
+                    file.write(f"{word}\n")
+                return redirect('simulate', word=word)
+
         else:
             return render(request, 'game.html', {
                 'success': False,
@@ -42,12 +52,12 @@ def submit_word(request):
             })
     return redirect('index')
 
-def monkey_learn(request, word_id):
-    
-    word_obj = Word.objects.get(id=word_id)
-    learned_word, p_attempts = simulate_monkey_learning(word_obj.word)
+
+def monkey_learn(request, word):
+    word=word
+    learned_word, p_attempts = simulate_monkey_learning(word)
     return render(request, 'simulate.html', {
-        'word': word_obj.word,
+        'word': word,
         'learned_word': learned_word,
         'attempts': p_attempts
     })
@@ -70,3 +80,36 @@ def definition(request, word=get_word):
 
 def final(request):
     return render(request, "final.html")
+
+
+
+
+#CODIGO PARA USAR SQLITE
+
+# def submit_word(request):
+#     if request.method == 'POST':
+#         word = request.POST.get('word')
+#         if len(word) >= 0 and len(word) <= 100 and word.isalpha():
+#             word = word.lower()
+#             # Verificar si la palabra ya existe
+#             try:
+
+#                 created = Word.objects.get_or_create(word=word)
+#                 if created:
+#                     return redirect('simulate', word=word)
+#                 else:
+#                     return render(request, 'game.html', {
+#                         'success': False,
+#                         'message': "La palabra ya se la enseñaron previamente."
+#                     })
+#             except IntegrityError:
+#                 return render(request, 'game.html', {
+#                     'success': False,
+#                     'message': "Ocurrió un error al guardar la palabra."
+#                 })
+#         else:
+#             return render(request, 'game.html', {
+#                 'success': False,
+#                 'message': "La palabra no cumple con las reglas."
+#             })
+#     return redirect('index')
