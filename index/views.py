@@ -21,30 +21,7 @@ def submit_word(request):
         if len(word) >= 0 and len(word) <= 100 and word.isalpha():
             word = word.lower()
             # Verificar si la palabra ya existe en el archivo .txt
-            try:
-                file_path = 'db.txt'  # Ruta del archivo .txt
-                # Leer las palabras ya guardadas
-                with open(file_path, 'r') as file:
-                    words = file.read().splitlines()
-                
-                if word in words:
-                    return render(request, 'game.html', {
-                        'success': False,
-                        'message': "La palabra ya se la enseñaron previamente."
-                    })
-                
-                # Guardar la nueva palabra
-                with open(file_path, 'a') as file:
-                    file.write(f"{word}\n")
-
-                return redirect('simulate', word=word)
-
-            except FileNotFoundError:
-                # Si el archivo no existe, crearlo y guardar la palabra
-                with open(file_path, 'w') as file:
-                    file.write(f"{word}\n")
-                return redirect('simulate', word=word)
-
+            return redirect('simulate', word=word)
         else:
             return render(request, 'game.html', {
                 'success': False,
